@@ -1,4 +1,4 @@
-const Posts = require("../models/posts");
+const Post = require("../models/post");
 const mongoose = require("mongoose");
 
 const getPosts = async (req, res, next) => {
@@ -6,10 +6,10 @@ const getPosts = async (req, res, next) => {
 
   try {
     if (filter.sender) {
-      const posts = await Posts.find({ sender: filter.sender });
+      const posts = await Post.find({ sender: filter.sender });
       return res.status(200).json(posts);
     } else {
-      const posts = await Posts.find();
+      const posts = await Post.find();
       return res.status(200).json(posts);
     }
   } catch {
@@ -22,7 +22,7 @@ const getPostById = async (req, res, next) => {
 
   if (mongoose.Types.ObjectId.isValid(id)) {
     try {
-      const post = await Posts.findById(id);
+      const post = await Post.findById(id);
       if (post) {
         res.status(200).json(post);
       } else {
@@ -38,7 +38,7 @@ const getPostById = async (req, res, next) => {
 
 const createPost = async (req, res, next) => {
   try {
-    const post = await Posts.create(req.body);
+    const post = await Post.create(req.body);
     res.status(201).json(post);
   } catch (error) {
     console.log(error);
@@ -51,7 +51,7 @@ const updatePost = async (req, res, next) => {
 
   if (mongoose.Types.ObjectId.isValid(id)) {
     try {
-      const post = await Posts.findByIdAndUpdate(id, req.body, {
+      const post = await Post.findByIdAndUpdate(id, req.body, {
         new: true,
         runValidators: true
       });
@@ -74,7 +74,7 @@ const deletePost = async (req, res, next) => {
 
   if (mongoose.Types.ObjectId.isValid(id)) {
     try {
-      const result = await Posts.deleteOne({ _id: id });
+      const result = await Post.deleteOne({ _id: id });
       if (result.deletedCount > 0) {
         res.status(200).json({ message: "Post deleted" });
       } else {

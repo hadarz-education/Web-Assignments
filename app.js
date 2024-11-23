@@ -16,8 +16,8 @@ db.once("open", () => console.log("Connected to database"));
 const indexRouter = require("./routes/index");
 app.use("/", indexRouter);
 
-const postsRouter = require("./routes/posts");
-app.use("/posts", postsRouter);
+const postRouter = require("./routes/post");
+app.use("/post", postRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

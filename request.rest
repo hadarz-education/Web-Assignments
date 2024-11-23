@@ -1,7 +1,7 @@
 
 
 ### Add a new post
-POST http://localhost:3000/posts
+POST http://localhost:3000/post
 Content-Type: application/json
 
 {
@@ -11,17 +11,17 @@ Content-Type: application/json
 }
 
 ### Get All Posts
-GET http://localhost:3000/posts
+GET http://localhost:3000/post
 
 
 ### Get a Post by ID
-GET http://localhost:3000/posts/6742325ad92c5574b3cbc2ce
+GET http://localhost:3000/post/6742325ad92c5574b3cbc2ce
 
 ### 
-GET http://localhost:3000/posts?sender=John%20Doe
+GET http://localhost:3000/post?sender=John%20Doe
 
 ### Update a post
-PUT http://localhost:3000/posts/6742325ad92c5574b3cbc2ce
+PUT http://localhost:3000/post/6742325ad92c5574b3cbc2ce
 Content-Type: application/json
 
 {
@@ -30,4 +30,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/posts/67423277d92c5574b3cbc2d2
+DELETE http://localhost:3000/post/674239be91bde9348df4f3c0
