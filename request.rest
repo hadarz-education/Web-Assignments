@@ -1,0 +1,33 @@
+
+
+### Add a new post
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "sender": "John Doe",
+    "title": "My first post",
+    "content": "Hello world!"
+}
+
+### Get All Posts
+GET http://localhost:3000/posts
+
+
+### Get a Post by ID
+GET http://localhost:3000/posts/6742325ad92c5574b3cbc2ce
+
+### 
+GET http://localhost:3000/posts?sender=John%20Doe
+
+### Update a post
+PUT http://localhost:3000/posts/6742325ad92c5574b3cbc2ce
+Content-Type: application/json
+
+{
+  "title": "Updated Post Title",
+  "content": "Updated content of the post."
+}
+
+###
+DELETE http://localhost:3000/posts/67423277d92c5574b3cbc2d2
