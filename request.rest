@@ -1,5 +1,5 @@
 
-
+# -----POST CRUD-----
 ### Add a new post
 POST http://localhost:3000/post
 Content-Type: application/json
@@ -15,13 +15,13 @@ GET http://localhost:3000/post
 
 
 ### Get a Post by ID
-GET http://localhost:3000/post/6742325ad92c5574b3cbc2ce
+GET http://localhost:3000/post/6745c3f469c604def9dec936
 
 ### 
 GET http://localhost:3000/post?sender=John%20Doe
 
 ### Update a post
-PUT http://localhost:3000/post/6742325ad92c5574b3cbc2ce
+PUT http://localhost:3000/post/6745c3f469c604def9dec936
 Content-Type: application/json
 
 {
@@ -30,4 +30,42 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/post/674239be91bde9348df4f3c0
+DELETE http://localhost:3000/post/6745c3f469c604def9dec936
+
+# -----POST CRUD-----
+
+
+# -----COMMENT CRUD-----
+### Create a Comment
+POST http://localhost:3000/comment
+Content-Type: application/json
+
+{
+  "content": "This is a comment",
+  "sender": "lolol",
+  "postId": "6745c3f469c604def9dec936"
+}
+
+### Get All comments
+GET http://localhost:3000/comment
+
+### Get Comment By ID
+GET http://localhost:3000/comment/6745cacabce2f164d9494634
+
+### Get All Comments By Sender
+GET http://localhost:3000/comment?sender=lolol
+
+### Get All Comments By PostId
+GET http://localhost:3000/comment?postId=6745c3f469c604def9dec936
+
+### Update a Comment
+PUT http://localhost:3000/comment/6745cacabce2f164d9494634
+Content-Type: application/json
+
+{
+  "content": "Updated comment content1"
+}
+
+### Delete a Comment
+DELETE http://localhost:3000/comment/6745cacabce2f164d9494634
+# -----POST CRUD-----
