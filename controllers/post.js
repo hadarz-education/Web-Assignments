@@ -26,13 +26,13 @@ const getPostById = async (req, res, next) => {
       if (post) {
         res.status(200).json(post);
       } else {
-        res.status(404).json({ message: "Post not found" });
+        res.status(404).json({ message: "Post not found!" });
       }
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
   } else {
-    res.status(400).json({ message: "Invalid ID format" });
+    res.status(400).json({ message: "Invalid ID format!" });
   }
 };
 
@@ -58,14 +58,14 @@ const updatePost = async (req, res, next) => {
       if (post) {
         res.status(200).json(post);
       } else {
-        res.status(404).json({ message: "Post not found" });
+        res.status(404).json({ message: "Post not found!" });
       }
     } catch (error) {
       console.log(error);
       res.status(400).json({ message: error.message });
     }
   } else {
-    res.status(400).json({ message: "Invalid ID format" });
+    res.status(400).json({ message: "Invalid ID format!" });
   }
 };
 
@@ -76,17 +76,23 @@ const deletePost = async (req, res, next) => {
     try {
       const result = await Post.deleteOne({ _id: id });
       if (result.deletedCount > 0) {
-        res.status(200).json({ message: "Post deleted" });
+        res.status(200).json({ message: "Post deleted!" });
       } else {
-        res.status(404).json({ message: "Post not found" });
+        res.status(404).json({ message: "Post not found!" });
       }
     } catch (error) {
       console.log(error);
       res.status(400).json({ message: error.message });
     }
   } else {
-    res.status(400).json({ message: "Invalid ID format" });
+    res.status(400).json({ message: "Invalid ID format!" });
   }
 };
 
-module.exports = { getPosts, getPostById, createPost, updatePost, deletePost };
+module.exports = {
+  getPosts,
+  getPostById,
+  createPost,
+  updatePost,
+  deletePost
+};
