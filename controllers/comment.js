@@ -29,13 +29,13 @@ const getCommentById = async (req, res, next) => {
       if (comment) {
         res.status(200).json(comment);
       } else {
-        res.status(404).json({ message: "Comment not found" });
+        res.status(404).json({ message: "Comment not found!" });
       }
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
   } else {
-    res.status(400).json({ message: "Invalid ID format" });
+    res.status(400).json({ message: "Invalid ID format!" });
   }
 };
 
@@ -61,14 +61,14 @@ const updateComment = async (req, res, next) => {
       if (comment) {
         res.status(200).json(comment);
       } else {
-        res.status(404).json({ message: "Comment not found" });
+        res.status(404).json({ message: "Comment not found!" });
       }
     } catch (error) {
       console.log(error);
       res.status(400).json({ message: error.message });
     }
   } else {
-    res.status(400).json({ message: "Invalid ID format" });
+    res.status(400).json({ message: "Invalid ID format!" });
   }
 };
 
@@ -79,17 +79,23 @@ const deleteComment = async (req, res, next) => {
     try {
       const result = await Comment.deleteOne({ _id: id });
       if (result.deletedCount > 0) {
-        res.status(200).json({ message: "Comment deleted" });
+        res.status(200).json({ message: "Comment deleted!" });
       } else {
-        res.status(404).json({ message: "Comment not found" });
+        res.status(404).json({ message: "Comment not found!" });
       }
     } catch (error) {
       console.log(error);
       res.status(400).json({ message: error.message });
     }
   } else {
-    res.status(400).json({ message: "Invalid ID format" });
+    res.status(400).json({ message: "Invalid ID format!" });
   }
 };
 
-module.exports = { getComments, getCommentById, createComment, updateComment, deleteComment };
+module.exports = {
+  getComments,
+  getCommentById,
+  createComment,
+  updateComment,
+  deleteComment
+};
