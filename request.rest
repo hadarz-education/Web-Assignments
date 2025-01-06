@@ -1,0 +1,90 @@
+
+# -----POST CRUD-----
+### Add a new post
+POST http://localhost:3000/post
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzdhZTk3NTYwZjI3YTY2ZTNlNmQyMGMiLCJyYW5kb20iOjEwNjY0NywiaWF0IjoxNzM2MTA4ODk2LCJleHAiOjE3MzYxMTI0OTZ9.i9rsadngbl4dwXZVXVgidzmMMKCpZyOct3hmJVvJQWg
+
+{
+    "title": "My first post",
+    "content": "Hello world!"
+}
+
+### Get All Posts
+GET http://localhost:3000/post
+
+
+### Get a Post by ID
+GET http://localhost:3000/post/6745c3f469c604def9dec936
+
+### 
+GET http://localhost:3000/post?sender=John%20Doe
+
+### Update a post
+PUT http://localhost:3000/post/6745c3f469c604def9dec936
+Content-Type: application/json
+
+{
+  "title": "Updated Post Title",
+  "content": "Updated content of the post."
+}
+
+###
+DELETE http://localhost:3000/post/6745c3f469c604def9dec936
+
+# -----POST CRUD-----
+
+
+# -----COMMENT CRUD-----
+### Create a Comment
+POST http://localhost:3000/comment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzdhZTk3NTYwZjI3YTY2ZTNlNmQyMGMiLCJyYW5kb20iOjEwNjY0NywiaWF0IjoxNzM2MTA4ODk2LCJleHAiOjE3MzYxMTI0OTZ9.i9rsadngbl4dwXZVXVgidzmMMKCpZyOct3hmJVvJQWg
+
+{
+  "content": "This is a comment",
+  "postId": "677aeb6a4da7edb59aea5d0c"
+}
+
+### Get All comments
+GET http://localhost:3000/comment
+
+### Get Comment By ID
+GET http://localhost:3000/comment/6745cacabce2f164d9494634
+
+### Get All Comments By Sender
+GET http://localhost:3000/comment?sender=lolol
+
+### Get All Comments By PostId
+GET http://localhost:3000/comment?postId=6745c3f469c604def9dec936
+
+### Update a Comment
+PUT http://localhost:3000/comment/6745cacabce2f164d9494634
+Content-Type: application/json
+
+{
+  "content": "Updated comment content1"
+}
+
+### Delete a Comment
+DELETE http://localhost:3000/comment/6745cacabce2f164d9494634
+# -----POST CRUD-----
+# -----AUTH CRUD-----
+### Register a new user
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "user@test.com",
+  "password": "test",
+  "username": "test"
+}
+
+### Login a user
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@test.com",
+  "password": "test"
+}
